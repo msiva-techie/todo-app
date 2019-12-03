@@ -1,0 +1,33 @@
+<form action="/todos/update/{{todo.id}}?_method=PUT" method="POST" style="margin-top:20px">
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input type="text" class="form-control" name="title" id="" aria-describedby="helpId" placeholder=""
+			value="{{todo.title}}" required>
+		<small id="helpId" class="form-text text-muted">Enter the title of the Todo</small>
+	</div>
+
+	<div class="form-group">
+		<label for="">Description</label>
+		<textarea class="form-control" name="description" id="" cols="20" rows="5"
+			required>{{todo.description}}</textarea>
+		<small id="helpId" class="form-text text-muted">Describe about the ToDo</small>
+	</div>
+
+	<div class="form-group">
+		<label for="priority">Priority</label>
+		<select class="form-control" name="priority" id="dropDown" required>
+			<option value="">None</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<small id="helpId" class="form-text text-muted">Select the priority out of 5</small>
+	</div>
+	<button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<script>
+	document.getElementById("dropDown").value = {{todo.priority}};
+</script>

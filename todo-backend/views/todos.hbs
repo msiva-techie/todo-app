@@ -1,0 +1,31 @@
+{{!-- <div style="margin-top:20px">
+	<ul class="list-group">
+		{{#each todos}}
+		<li class="list-group-item">{{title}}</li>
+		{{/each}}
+	</ul>
+</div> --}}
+
+{{!-- <h1>Todos</h1> --}}
+<a style="margin-top:20px;float:right" name="" id="" class="btn btn-primary" href="/todos/add" role="button">Add
+	Todo</a>
+<div style="clear:both"></div>
+{{#each todos}}
+<div class="card" style="margin:20px auto;width:80%">
+	<h5 class="card-header">{{title}}
+		<form action="/todos/delete/{{id}}?_method=DELETE" method="POST" style="display:float;float:right">
+			<button type="submit" class="close" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</form>
+	</h5>
+	<div class="card-body">
+		{{!-- <h5 class="card-title">Special title treatment</h5> --}}
+		<p class="card-text">{{description}}</p>
+		<div style="display:float;float:right"><span>priority: </span>{{priority}}</div>
+		<a href="/todos/edit/{{id}}" class="btn btn-primary">Edit</a>
+
+		{{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+	</div>
+</div>
+{{/each}}
